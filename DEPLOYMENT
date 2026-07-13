@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mydep
+  name: mydep1
   labels:
-    app: game
+    app: cycle
 spec:
-  replicas: 10
+  replicas: 7
   selector:
     matchLabels:
-      app: game
+      app: cycle
   template:
     metadata:
       labels:
-        app: game
+        app: cycle
     spec:
       containers:
         - name: cont1
-          image: shammu101/game
+          image: shammu101/cycle
           ports:
             - containerPort: 80
 ---
@@ -27,7 +27,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: game
+    app: cycle
   ports:
     - port: 80
       targetPort: 80
